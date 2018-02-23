@@ -16,7 +16,7 @@ Graphite.prototype.connect = function(connectListener) {
   if (this.encoding) {
     this.socket.setEncoding(this.encoding);
   }
-  
+
   if (this.timeout) {
     var self = this;
     this.socket.setTimeout(this.timeout, function(){
@@ -41,6 +41,8 @@ Graphite.prototype.on = function(event, callback) {
   if (this.socket) {
     this.socket.on(event, callback);
   }
+
+  return this;
 }
 
 Graphite.prototype.end = function() {
