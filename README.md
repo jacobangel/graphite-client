@@ -1,6 +1,6 @@
 # graphite-client
 
-Node.js client for Graphite      [![Build Status](https://travis-ci.org/Shimi/graphite-client.svg?branch=master)](https://travis-ci.org/Shimi/graphite-client) 
+Node.js client for Graphite      [![Build Status](https://travis-ci.org/Shimi/graphite-client.svg?branch=master)](https://travis-ci.org/Shimi/graphite-client)
 
 ##Install
 [![NPM](https://nodei.co/npm/graphite-client.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/graphite-client/)
@@ -9,7 +9,7 @@ $ npm install graphite-client
 ```
 
 ## Usage
-###Create instance
+### Create instance
 ```js
 var Graphite = require('graphite-client');
 
@@ -17,7 +17,7 @@ var graphite = new Graphite(serverHost, 2003, 'UTF-8');
 ```
 The client tries to reconnect on connection timeout
 
-###Listen for the underline socket events
+### Listen for the underline socket events
 ```js
 graphite.on('end', function() {
   log.info('Graphite client disconnected');
@@ -28,14 +28,14 @@ graphite.on('error', function(error) {
 });
 ```
 
-###Connect to the graphite server
+### Connect to the graphite server
 ```js
 graphite.connect(function() { //'connect' listener
   log.info('Connected to Graphite server');
 });
 ```
 
-###Write to the server
+### Write to the server
 ```js
 var metrics = {
   'pre1' : {
@@ -46,7 +46,7 @@ var metrics = {
   },
   'key3' : 'value3'
 };
-    
+
 graphite.write(metrics, Date.now(), function(err) {
   log.warn("Failed to write metrics to metrics server. err: " + err)
 });
